@@ -1,7 +1,7 @@
 # Print document's middle. (usage: body [START],[END] [FILE])
 
 body() {
-	if [[ $# -eq 0 || "$1" == "-h" || "$1" == "--help" ]] ; then
+	if [[ $# -eq 0 || "$1" == "-h" || "$1" == "--help" ]]; then
 		cat << EOF
 usage: $0 [START],[END] [FILE]
 Output FILE from START to END line.
@@ -15,4 +15,3 @@ EOF
 	exp=$(echo $exp | sed -e 's/^,/1,/' -e 's/,$/,$/')
 	sed -n -e "${exp}p" $@
 }
-alias -g B='| body'
